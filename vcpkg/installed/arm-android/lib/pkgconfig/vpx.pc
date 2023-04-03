@@ -1,5 +1,5 @@
 # pkg-config file from libvpx v1.11.0
-prefix=/usr/local/vcpkg/installed/arm-android
+prefix=/workspaces/rustdesk_thirdpary_lib/vcpkg//installed/arm-android
 exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include
