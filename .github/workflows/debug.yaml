@@ -1,0 +1,38 @@
+name: Enable debug sessions
+
+on:
+  workflow_call:
+  workflow_dispatch:
+    
+env:
+  # 2023.02.04
+  VCPKG_COMMIT_ID: a7b6122f6b6504d16d96117336a0562693579933 
+jobs:
+  Debug:
+    name: "Debug macOS"
+    runs-on: macos-latest
+    steps:
+      - uses: lukka/get-cmake@latest
+      - name: run-vcpkg
+        uses: lukka/run-vcpkg@v11.1
+        with:
+          vcpkgGitCommitId: '${{ env.VCPKG_COMMIT_ID }}'
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+            override: true
+            components: rustfmt, clippy
+            profile: minimal
+      - name: Debug via SSH
+        uses: luchihoratiu/debug-via-ssh@v1.1
+        with:
+          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+          SSH_PASS: ${{ secrets.SSH_PASS }}
+          NGROK_REGION: ap
+
+  
+
+
