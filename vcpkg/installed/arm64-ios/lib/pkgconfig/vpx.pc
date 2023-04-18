@@ -1,14 +1,14 @@
-prefix=${pcfiledir}/../..
-# pkg-config file from libvpx v1.12.0
+# pkg-config file from libvpx v1.13.0
+prefix=/Users/tousjin/personal/rustdesk_thirdparty_lib/vcpkg/installed/arm64-ios
 exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include
 
 Name: vpx
 Description: WebM Project VPx codec implementation
-Version: 1.12.0
+Version: 1.13.0
+Requires:
 Conflicts:
-
-Libs: "-L${libdir}" -lvpx -lm -lm -lpthread
-Requires: 
-Cflags: "-I${includedir}"
+Libs: -L${libdir} -lvpx -lm
+Libs.private: -lm -lpthread
+Cflags: -I${includedir}
