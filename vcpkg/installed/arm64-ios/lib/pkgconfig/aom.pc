@@ -1,0 +1,15 @@
+prefix=${pcfiledir}/../..
+# libaom pkg-config.
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: aom
+Description: Alliance for Open Media AV1 codec library v3.5.0.
+Version: 3.5.0
+Conflicts:
+
+
+Libs: "-L${libdir}" -laom -lm -lpthread
+Requires: 
+Cflags: "-I${includedir}"
