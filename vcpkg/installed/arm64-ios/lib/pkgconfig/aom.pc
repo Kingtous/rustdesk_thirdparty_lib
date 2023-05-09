@@ -1,15 +1,14 @@
-prefix=${pcfiledir}/../..
 # libaom pkg-config.
+prefix=/Users/kingtous/projects/rustdesk_thirdparty_lib/vcpkg/installed/arm64-ios
 exec_prefix=${prefix}
 includedir=${prefix}/include
 libdir=${exec_prefix}/lib
 
 Name: aom
-Description: Alliance for Open Media AV1 codec library v3.5.0.
-Version: 3.5.0
+Description: Alliance for Open Media AV1 codec library v3.6.0.
+Version: 3.6.0
+Requires:
 Conflicts:
-
-
-Libs: "-L${libdir}" -laom -lm -lpthread
-Requires: 
-Cflags: "-I${includedir}"
+Libs: -L${libdir} -laom
+Libs.private: -lm -lpthread
+Cflags: -I${includedir}
